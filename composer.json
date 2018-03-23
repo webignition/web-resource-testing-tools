@@ -1,0 +1,25 @@
+{
+    "name": "webignition/web-resource-testing-tools",
+    "homepage": "https://github.com/webignition/web-resource-testing-tools",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Jon Cram",
+            "email": "jon@webignition.net"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "webignition\\WebResource\\TestingTools\\": "src/"
+        }
+    },
+    "require": {
+        "php": ">=5.6.0"
+    },
+    "require-dev": {
+        "psr/http-message": "~1.0",
+        "mockery/mockery": "~1.0"
+    },
+    "minimum-stability":"stable"
+}
