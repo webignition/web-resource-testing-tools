@@ -16,7 +16,7 @@ class FixtureLoader
      */
     public static function load($name)
     {
-        $fixturePath = realpath(__DIR__ . '/../Fixtures/' . $name);
+        $fixturePath = realpath(static::$fixturePath . '/' . $name);
 
         if (empty($fixturePath)) {
             throw new \RuntimeException(sprintf(
