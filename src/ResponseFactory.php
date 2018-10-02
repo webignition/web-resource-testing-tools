@@ -49,9 +49,7 @@ class ResponseFactory
         $response
             ->shouldReceive('getHeaderLine')
             ->with('content-type')
-            ->andReturn([
-                $contentType,
-            ]);
+            ->andReturn($contentType);
 
         if (empty($bodyStream)) {
             /* @var StreamInterface|Mock $bodyStream */
