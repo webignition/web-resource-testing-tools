@@ -4,6 +4,7 @@ namespace webignition\WebResource\TestingTools;
 
 use Mockery;
 use Mockery\Mock;
+use Mockery\MockInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\StreamInterface;
 
@@ -35,11 +36,18 @@ class ResponseFactory
      */
     public static function create($contentType, $content = '', $bodyStream = null)
     {
-        /* @var ResponseInterface|Mock $response */
+        /* @var ResponseInterface|MockInterface $response */
         $response = Mockery::mock(ResponseInterface::class);
 
         $response
             ->shouldReceive('getHeader')
+            ->with('content-type')
+            ->andReturn([
+                $contentType,
+            ]);
+
+        $response
+            ->shouldReceive('getHeaderLine')
             ->with('content-type')
             ->andReturn([
                 $contentType,
